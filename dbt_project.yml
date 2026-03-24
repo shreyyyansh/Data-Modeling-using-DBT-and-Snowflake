@@ -1,0 +1,27 @@
+name: 'testProject'
+version: '1.0.0'
+profile: 'testProject'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  testProject:
+
+    # 🔹 STAGING LAYER (L2)
+    staging:
+      +schema: L2_PROCESSING
+      +materialized: view
+
+    # 🔹 MART / FINAL LAYER (L3)
+    marts:
+      +schema: L3_CONSUMPTION
+      +materialized: table

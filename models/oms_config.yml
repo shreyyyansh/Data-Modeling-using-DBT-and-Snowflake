@@ -1,0 +1,24 @@
+models:
+  - name: customers_stg
+    description: "This is the staging table for customers data."
+    columns:
+      - name: Email
+        tests:
+          - string_not_empty
+  - name: employees_stg
+    description: "This is the staging table for employees data."
+    columns:
+      - name: JobTitle
+        tests:
+          - string_not_empty
+  - name: orders_stg
+    description: "This is the staging table for orders data."
+    columns:
+      - name: OrderID
+        tests:
+          - unique
+          - not_null
+      - name: CustomerID
+        description: "The ID of the customer who placed the order."
+        tests:
+          - not_null

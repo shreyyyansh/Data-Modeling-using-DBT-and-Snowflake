@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: landing
+    description : "This is the landing layer for the OMS data."
+    database: SLEEKMART_OMS
+    schema: L1_LANDING
+
+    tables:
+      - name: cust
+        description : "This table contains the raw customer data from the OMS."
+        identifier: customers
+
+      - name: ordr
+        description : "This table contains the raw order data from the OMS."
+        identifier: orders
+
+      - name: ordritms
+        description : "This table contains the raw order items data from the OMS."
+        identifier: orderitems
